@@ -3,9 +3,9 @@
 import imaplib
 # import sys
 
-M = imaplib.IMAP4_SSL('imap.gmail.com')
 USERNAME = raw_input('Please input your email address: ')
 PASSWORD = raw_input('Please input your passward: ')
+M = imaplib.IMAP4_SSL('imap.gmail.com')
 print M.login(USERNAME, PASSWORD)
 M.list()
 M.select('inbox')
