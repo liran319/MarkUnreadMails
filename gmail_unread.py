@@ -8,7 +8,8 @@ M = imaplib.IMAP4_SSL('imap.gmail.com')
 
 
 def account_login():
-
+    """
+    """
     USERNAME = raw_input('Please input your email address: ')
     PASSWORD = getpass.getpass('Please input your passward: ')
     try:
@@ -30,10 +31,11 @@ while 1:
         for num in data[0].split():
             typ, data = M.fetch(num, '(BODY.PEEK[])')
             M.store(num, '+FLAGS', '\Seen')
-            print 'Message %s\n%s\n' % (num, repr(data))
+            print 'Message %s\n' % num
         print "Done!"
         M.close()
         M.logout()
+        anykey = raw_input('Press any to continue...')
         break
     else:
         pass
